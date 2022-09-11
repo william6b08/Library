@@ -1,0 +1,81 @@
+*{
+  box-sizing: border-box;
+}
+
+fieldset *{
+  display: block;
+}
+
+.pop-up-window{
+  position: fixed;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%) scale(0); /*scale(0,0) effectively make the window disappears*/
+  transition: 200ms ease-in-out;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 1rem;
+  z-index: 10; /*high z-index will make sure this div show up above other elements*/
+  background-color: white; 
+  min-width: 30%;
+}
+
+.pop-up-window.active{
+  transform: translate(-50%, -50%) scale(1); ;
+}
+
+.heading{
+  padding: 5px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.title {
+  padding-right: 1rem;
+}
+
+.close-button{
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+fieldset{
+  border-radius: 1rem;
+  border: 1px dotted grey;
+}
+
+#overlay{
+  position: fixed;
+  opacity: 0;
+  top:0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none; /*This enable user to click through the overlay div.*/
+
+}
+
+#overlay.active{
+  opacity: 1;
+  pointer-events: all;
+}
+
+#add-book{
+  cursor: pointer;
+}
+
+.bookshelf{
+  display: grid;
+  grid-auto-flow: column;  
+}
+
+.bookinfo{
+  height: 200px;
+  width: 100px
+}
