@@ -19,16 +19,18 @@ for (func of functionsForSubmitBtn){
 
 let myLibrary = [];
 
-function Book(bookName, author, year){
-  this.bookName = bookName;
+function Book(title, author, year,read){
+  this.title = title;
   this.author = author;
   this.year = year;
+  this.read = read;
 }
 
 function addBookToLibrary(){
   let bookName;
   let author;
   let year;
+  let read;
   const results = document.querySelectorAll("input");
   for (result of results){
     if(result !== null){
@@ -43,9 +45,13 @@ function addBookToLibrary(){
       else if (result.id === "year"){
         year = result.value;
       }
+      else if (result.id === "read")
+      {
+        read = result.checked;
+      }
     }
   }
-  myLibrary.push(new Book(bookName, author, year));
+  myLibrary.push(new Book(bookName, author, year, read));
 }
 
 function showBookInfo(){
@@ -61,9 +67,15 @@ function showBookInfo(){
 
   for (book of myLibrary){
     const bookDiv = document.createElement("div");
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("remove-button");
+
+    const readBtn = document.createElement("button");
+    readBtn.classList.add("Read")
     for (info in book){
-      const contentPara = document.createElement("p")
-      const textContent =  document.createTextNode(book[info]);
+      const contentPara = document.createElement("p");
+      const  textContent = document.createTextNode(`${info}: ${book[info]}`); 
+
       contentPara.appendChild(textContent);
       bookDiv.appendChild(contentPara);
     }
