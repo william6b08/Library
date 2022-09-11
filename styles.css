@@ -6,6 +6,11 @@ fieldset *{
   display: block;
 }
 
+body{
+  background-image: url("background_img.jpg");
+  background-size: cover;
+}
+
 .pop-up-window{
   position: fixed;
   top: 50%;
@@ -80,8 +85,9 @@ fieldset:nth-of-type(2) *{
 }
 
 .bookinfo{
+  background-color: white;
   height: 200px;
-  width: 100px
+  width: 10vw;
 }
 
 .remove-button{

@@ -10,7 +10,7 @@ const functionsForSubmitBtn = [addBookToLibrary, closePopUpWindow];
 
 openPopUpWindowbtn.addEventListener("click", openPopUpWindow);
 closeBtn.addEventListener("click", closePopUpWindow);
-showBookBtn.addEventListener("click", showBookInfo);
+showBookBtn.addEventListener("click", updateBookShelf);
 
 
 for (func of functionsForSubmitBtn){
@@ -54,7 +54,7 @@ function addBookToLibrary(){
   myLibrary.push(new Book(bookName, author, year, read));
 }
 
-function showBookInfo(){
+function updateBookShelf(){
 
   const oldBookShelf = document.querySelector(".bookshelf");
   if (oldBookShelf)
@@ -67,8 +67,13 @@ function showBookInfo(){
 
   for (book of myLibrary){
     const bookDiv = document.createElement("div");
+    bookDiv.classList.add("bookinfo")
     const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
     removeBtn.classList.add("remove-button");
+    removeBtn.id = myLibrary.indexOf(book);
+    removeBtn.addEventListener('click', removeBook);
+    removeBtn.addEventListener('click', updateBookShelf);
 
     const readBtn = document.createElement("button");
     readBtn.classList.add("Read")
@@ -78,6 +83,7 @@ function showBookInfo(){
 
       contentPara.appendChild(textContent);
       bookDiv.appendChild(contentPara);
+      bookDiv.appendChild(removeBtn);
     }
     bookShelf.appendChild(bookDiv);
   }
@@ -92,5 +98,9 @@ function openPopUpWindow(){
 function closePopUpWindow(){
   overlay.classList.remove("active");
   popUpWindow.classList.remove("active");
+}
+
+function removeBook(eventObj){
+  myLibrary.splice(eventObj.target.id, 1);
 }
 
