@@ -17,7 +17,18 @@ for (func of functionsForSubmitBtn){
   submitBtn.addEventListener("click", func);
 }
 
-let myLibrary = [];
+let book0 = new Book("Testing book1", "Arthur Morgan", 1899, true)
+
+let book1 = new Book("Testing book2", "Jimmy Machill", 1900, false)
+
+let book2 = new Book("Testing book3", "Chuck", 1900, false)
+let book3 = new Book("Testing book4", "kim", 1900, false)
+let book4 = new Book("Testing book5", "Arthur Morgan", 1899, true)
+
+let book5 = new Book("Testing book6", "Jimmy Machill", 1900, false)
+let book6 = new Book("Testing book7", "Chuck", 1900, false)
+let book7 = new Book("Testing book8", "kim", 1900, false)
+let myLibrary = [book0, book1, book2, book3, book4, book5, book6, book7];
 
 function Book(title, author, year,read){
   this.title = title;
@@ -67,7 +78,7 @@ function updateBookShelf(){
 
   for (book of myLibrary){
     const bookDiv = document.createElement("div");
-    bookDiv.classList.add("bookinfo")
+    bookDiv.classList.add("book")
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Remove";
     removeBtn.classList.add("remove-button");
@@ -79,7 +90,7 @@ function updateBookShelf(){
     readBtn.classList.add("Read")
     for (info in book){
       const contentPara = document.createElement("p");
-      const  textContent = document.createTextNode(`${info}: ${book[info]}`); 
+      const textContent = document.createTextNode(`${info}: ${book[info]}`); 
 
       contentPara.appendChild(textContent);
       bookDiv.appendChild(contentPara);

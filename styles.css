@@ -8,7 +8,7 @@ fieldset *{
 
 body{
   background-image: url("background_img.jpg");
-  background-size: cover;
+  background: cover no-repeat;
 }
 
 .pop-up-window{
@@ -43,7 +43,8 @@ body{
   padding-right: 1rem;
 }
 
-.close-button{
+button{
+  margin: 5px 5px;
   border: none;
   background-color: white;
   cursor: pointer;
@@ -81,15 +82,36 @@ fieldset:nth-of-type(2) *{
 
 .bookshelf{
   display: grid;
-  grid-auto-flow: column;  
+  grid-auto-rows: 300px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  overflow: auto;
+  gap: 30px;
 }
 
-.bookinfo{
+.book{
+  background: url("book.png") no-repeat center 80px;
+  background-size: contain;
+  position: relative;
+  border-radius: 2rem;
   background-color: white;
-  height: 200px;
-  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  
+}
+
+.book > p{
+  border: 1px solid black;
+  margin: 0px;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .remove-button{
   color: red;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
 }
