@@ -17,6 +17,16 @@ for (func of functionsForSubmitBtn){
   submitBtn.addEventListener("click", func);
 }
 
+class Book{
+  constructor(title, author, year,read){
+    this.title = title;
+    this.author = author;
+    this.year = year;
+    this.read = read;
+  }
+
+}
+
 let book0 = new Book("Testing book1", "Arthur Morgan", 1899, true)
 
 let book1 = new Book("Testing book2", "Jimmy Machill", 1900, false)
@@ -30,12 +40,6 @@ let book6 = new Book("Testing book7", "Chuck", 1900, false)
 let book7 = new Book("Testing book8", "kim", 1900, false)
 let myLibrary = [book0, book1, book2, book3, book4, book5, book6, book7];
 
-function Book(title, author, year,read){
-  this.title = title;
-  this.author = author;
-  this.year = year;
-  this.read = read;
-}
 
 function addBookToLibrary(){
   let bookName;

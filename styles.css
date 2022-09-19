@@ -11,6 +11,11 @@ body{
   background: cover no-repeat;
 }
 
+.commands{
+  display: flex;
+  justify-content: space-between;
+}
+
 .pop-up-window{
   position: fixed;
   top: 50%;
@@ -76,14 +81,16 @@ fieldset:nth-of-type(2) *{
   pointer-events: all;
 }
 
-#add-book{
+#add-book, .showbook{
   cursor: pointer;
+  height: 50px;
+  width: 125px;
 }
 
 .bookshelf{
   display: grid;
   grid-auto-rows: 300px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   overflow: auto;
   gap: 30px;
 }
